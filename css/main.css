@@ -1,0 +1,28 @@
+/* header */
+.navbg{
+
+
+    border-right: solid;
+}
+.divider{
+    border-bottom-style: solid;
+    border-bottom-width: thin;
+    border-bottom-color: black;
+    margin-bottom: 1%;
+}
+.subheading{
+    text-align: center;
+}
+.customimage{
+    width: 50%;
+    height:auto;
+
+}
+.welcome{
+    text-align: center;
+}
+body {
+    height: 100%;
+    overflow: auto;
+    padding-bottom: 10%;
+}
