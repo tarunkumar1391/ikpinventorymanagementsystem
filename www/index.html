@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>IKP-Management </title>
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="../scripts/js/angular.min.js"></script>
+    <script src="../scripts/js/ui-bootstrap-tpls-2.0.0.min.js"></script>
+    <script src="../scripts/js/angular-animate.min.js"></script>
+    <script src="../scripts/js/angular-filter.min.js"></script>
+
+
+    <script src="../scripts/js/control.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="../scripts/js/bootstrap.min.js"></script>
+    <script>
+        function entry() {
+            var entryType = document.getElementById("entType");
+            var devQuantity = document.getElementById("devQuant");
+            if (entryType.value != "Single"){
+                devQuantity.value = "";
+                devQuantity.disabled = "";
+
+            }else {
+                devQuantity.value = 1;
+                devQuantity.disabled = "true";
+            }
+        }
+
+    </script>
+</head>
+<body ng-app="inventoryApp" >
+<div class="container-fluid"><!--main body container-->
+    <div class="row-fluid"><!--header-->
+        <div class="page-header">
+            <h3>IKP Inventory Management </h3>
+        </div>
+    </div>
+    <div class="row"><!--Nav + body content-->
+        <div class="col-md-2 col-lg-2 navbg">
+            <ul class="nav nav-pills nav-stacked">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Inventory<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a data-toggle="tab" href="#addtoInvetory">Add</a></li>
+                        <li><a data-toggle="tab" href="#viewInventory">View</a></li>
+                        <li><a data-toggle="tab" href="#UpdateInventory">Update</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Assign<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a data-toggle="tab" href="#assignHardware">Hardware</a></li>
+                        <li><a data-toggle="tab" href="#viewAssignments">View</a></li>
+                        <li><a data-toggle="tab" href="#updateAssignments">Update</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+        <div class="col-md-10 col-lg-10">
+            <div class="row">
+                <div class="tab-content">
+                    <div class="welcome tab-pane fade in active"><h3>Welcome to the IKP Inventory!!!</h3></div>
+                    <div id="addtoInvetory" class="tab-pane fade ">
+                        <!--Device registration-->
+                        <div class="container">
+                            <form role="form" class="form-horizontal" action="../server/addinventory.php" method="post" ng-controller="addinventoryController" >
+                                <h3>Add to Inventory</h3>
+                                <div class="divider"></div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2 col-lg-2" >Device category:</label>
+                                    <div class="col-lg-6 col-md-6">
+                                        <select class="form-control" name="devCategory" placeholder="Choose a catergory" ng-model="devCat">
+                                            <option ng-disabled="true" ng-selected="true" value="">Choose a catergory...</option>
+                                            <option ng-repeat="cat in category | unique:'Category'">{{cat.Category}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2 col-lg-2" >Choose device :</label>
+                                    <div class="col-lg-6 col-md-6">
+                                        <select class="form-control" name="deviceType" placeholder="Choose an option that perfectly matches the device or choose the closest one " ng-model="devNg" required>
+                                            <option ng-disabled="true" ng-selected="true" value="">Choose a Device...</option>
+                                            <option ng-repeat="dev in device | unique:'dev' | filter:{Category:devCat}">{{dev.dev}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2 col-lg-2">Entry type:</label>
+                                    <div class="col-lg-6 col-md-6">
+                                        <select class="form-control" id="entType" name="entryType" placeholder="Choose entry type" onchange="entry();" required>
+                                            <option ng-disabled="true" ng-selected="true" value="">choose entry type</option>
+                                            <option value="Bulk">Bulk</option>
+                                            <option value="Single">Single</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2 col-lg-2">Brand name :</label>
+                                    <div class="col-lg-6 col-md-6">
+                                        <input type="text" class="form-control" name="brandName" placeholder="Enter Brand Name" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2 col-lg-2">Quantity:</label>
+                                    <div class="col-lg-6 col-md-6">
+                                        <input type="number" class="form-control" id="devQuant" name="devQuantity" min="1" placeholder="Enter quantity" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2 col-lg-2">Condition :</label>
+                                    <div class="col-lg-6 col-md-6">
+                                        <select class="form-control" name="deviceCondition" placeholder="Choose whether the device is new/old/refurbished" required>
+                                            <option ng-disabled="true" ng-selected="true" value="">choose a device condition</option>
+                                            <option value="Old">Old</option>
+                                            <option value="New">New</option>
+                                            <option value="Refurbished">Refurbished</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2 col-lg-2" >Description:</label>
+                                    <div class="col-lg-6 col-md-6">
+                                        <textarea  class="form-control" name="deviceDesc" placeholder="Provide device description or any information pertaining to the device..." required></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-10 col-lg-offset-2 col-lg-10">
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                        <button type="reset" class="btn btn-default">Cancel</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div id="viewInventory" class="tab-pane fade">
+                        <div class="container">
+                            <form class="form" role="form"> <!-- search field(incomplete) size="78"-->
+                                <div class="form-group ">
+                                    <input type="text" class="form-control"  type="text"  placeholder="Search... " ng-model="inventSearch">
+                                </div>
+
+                            </form>
+                            <div class="table-responsive">
+                                <table class="table table-hover" ng-controller = "viewInventoryController">
+                                    <thead>
+                                    <tr>
+                                        <th>Sno</th>
+                                        <th>Category</th>
+                                        <th>Entry type</th>
+                                        <th>Device</th>
+                                        <th>Brand</th>
+                                        <th>Quantity</th>
+                                        <th>Condition</th>
+                                        <th>Description</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody >
+                                    <tr ng-repeat="entry in entries | filter: inventSearch">
+                                        <td>{{entry.Sno}}</td>
+                                        <td>{{entry.devCategory}}</td>
+                                        <td>{{entry.entryType}}</td>
+                                        <td>{{entry.devName}}</td>
+                                        <td>{{entry.brandName}}</td>
+                                        <td>{{entry.devQuantity}}</td>
+                                        <td>{{entry.Condition}}</td>
+                                        <td>{{entry.Description}}</td>
+
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Device information-->
+                    <div id="routerInfo" class="tab-pane fade ">
+                        <div class="container">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th>Sno</th>
+                                        <th>Router</th>
+                                        <th>Floor</th>
+                                        <th>Room</th>
+                                        <th>Description</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody >
+                                    <tr ng-repeat="entry in entries | filter: pubSearch" ng-click = "open('lg');">
+                                        <td>{{entry.Sno}}</td>
+                                        <td>{{entry.routerName}}</td>
+                                        <td>{{entry.floorNum}}</td>
+                                        <td>{{entry.roomNum}}</td>
+                                        <td>{{entry.description}}</td>
+
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div id="switchInfo" class="tab-pane fade ">
+                        <div class="container">
+                            <div class="table-responsive">
+                                <table class="table table-hover" >
+                                    <thead>
+                                    <tr>
+                                        <th>Sno</th>
+                                        <th>Switch</th>
+                                        <th>No. of ports</th>
+                                        <th>Floor</th>
+                                        <th>Room</th>
+                                        <th>Description</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody >
+                                    <tr ng-repeat="entry in entries | filter: pubSearch">
+                                        <td>{{entry.Sno}}</td>
+                                        <td>{{entry.switchName}}</td>
+                                        <td>{{entry.noofPorts}}</td>
+                                        <td>{{entry.floorNum}}</td>
+                                        <td>{{entry.roomNum}}</td>
+                                        <td>{{entry.description}}</td>
+
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- Patching -->
+                    <div id="newSwitchPatching" class="tab-pane fade">
+                        <div class="container">
+                            <form role="form" class="form-horizontal" action="../server/patchnew.php" method="post" >
+                                <h3>Assign new patch field</h3>
+                                <div class="divider"></div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2" >Choose floor:</label>
+                                    <div class="col-lg-8 col-md-8">
+                                        <!--<select class="form-control" name="patchFloor" ng-model="p" ng-options="c.floorNum for c in entries track by c.Sno">-->
+                                        <select class="form-control" name="patchFloor" ng-model="floorng">
+                                            <option ng-disabled="true" ng-selected="true" value="">Choose a floor...</option>
+                                            <option ng-repeat="fl in floors | unique:'floorNum'">{{fl.floorNum}}</option>
+
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2" >Switch Room No:</label>
+                                    <div class="col-lg-8 col-md-8">
+                                        <select class="form-control" name="patchRoom" ng-model="swroom" >
+                                            <option ng-disabled="true" ng-selected="true" value="">Choose a room...</option>
+                                            <option ng-repeat="swr in room | filter:{floorNum:floorng} | unique:'switchRoom'">{{swr.switchRoom}}</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2" >Choose a switch</label>
+                                    <div class="col-lg-8 col-md-8">
+                                        <select class="form-control" name="patchSwitch" >
+                                            <option ng-disabled="true" ng-selected="true" value="">Choose a switch...</option>
+                                            <option ng-repeat="swt in switch | filter:{switchRoom:swroom}">{{swt.switchName}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2">Enter Port No:</label>
+                                    <div class="col-lg-8 col-md-8">
+                                        <input type="text" class="form-control" name="patchPortnum" placeholder="Enter Port no." >
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2" >Vlan Id:</label>
+                                    <div class="col-lg-8 col-md-8">
+                                        <input type="number" class="form-control" name="patchVlanid" placeholder="Enter vlan id" >
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2" >Vlan name:</label>
+                                    <div class="col-lg-8 col-md-8">
+                                        <input type="text" class="form-control" name="patchVlanname" placeholder="Enter vlan name" >
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2" >Patch field:</label>
+                                    <div class="col-lg-8 col-md-8">
+                                        <input type="text" class="form-control" name="patchField" placeholder="Enter patch field (source)" >
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2" >Destination room:</label>
+                                    <div class="col-lg-8 col-md-8">
+                                        <input type="text" class="form-control" name="patchDestroom" placeholder="Enter destination room" >
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2" >Destination jack:</label>
+                                    <div class="col-lg-8 col-md-8">
+                                        <input type="text" class="form-control" name="patchDestjack" placeholder="Enter destination jack" >
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2" >Comments:</label>
+                                    <div class="col-lg-8 col-md-8">
+                                        <textarea class="form-control" name="patchComm" placeholder="Enter your comments here"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                        <button type="reset" class="btn btn-default">Cancel</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div id="viewSwitchpatching" class="tab-pane fade " >
+                        <div class="container">
+                            <form class="form" role="form">
+                                <div class="form-group ">
+                                    <input type="text" class="form-control"  type="text"  placeholder="Search... " ng-model="patchSearch">
+                                </div>
+
+                            </form>
+                            <div class="table-responsive">
+                                <table class="table table-hover" >
+                                    <thead>
+                                    <tr>
+                                        <th>Sno</th>
+                                        <th>Floor No.</th>
+                                        <th>Switch Room No.</th>
+                                        <th>Switch Name</th>
+                                        <th>Port num</th>
+                                        <th>VLAN-ID</th>
+                                        <th>VLAN-Name</th>
+                                        <th>Source</th>
+                                        <th>Destination Room</th>
+                                        <th>Destination Jack</th>
+                                        <th>Comments</th>
+
+                                    </tr>
+                                    </thead>
+                                    <tbody >
+                                    <tr ng-repeat="entry in entries | filter: patchSearch" >
+                                        <td>{{entry.Sno}}</td>
+                                        <td>{{entry.floorNum}}</td>
+                                        <td>{{entry.switchRoom}}</td>
+                                        <td>{{entry.switchName}}</td>
+                                        <td>{{entry.switchPortnum}}</td>
+                                        <td>{{entry.vlanId}}</td>
+                                        <td>{{entry.vlanName}}</td>
+                                        <td>{{entry.patchFieldsrc}}</td>
+                                        <td>{{entry.destinationRoom}}</td>
+                                        <td>{{entry.destinationJack}}</td>
+                                        <td>{{entry.comments}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+    <div class="row"><!--footer-->
+        <nav class="navbar navbar-inverse navbar-fixed-bottom">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <h4 class="navbar-brand">All rights reserved @ Institut für kern physik</h4>
+                </div>
+            </div>
+        </nav>
+
+
+    </div>
+</div>
+
+</body>
+</html>
