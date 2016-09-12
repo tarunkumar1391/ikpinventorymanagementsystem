@@ -183,27 +183,69 @@
                         </div>
                     </div>
 
-                    <!--Device information-->
-                    <div id="routerInfo" class="tab-pane fade ">
+                    <div id="UpdateInventory" class="tab-pane fade" ng-controller = "updateInventoryController">
                         <div class="container">
+                            <form role="form" class="form-inline"  method="post"  >
+                                <h4>Filter By</h4>
+                                <div class="form-group">
+                                    <label>Category:</label>
+                                    <select class="form-control" name="devCategory" placeholder="Choose a catergory" ng-model="filterByCategory">
+                                        <option  ng-selected="true" value="">Choose a catergory...</option>
+                                        <option ng-repeat="cat in category | unique:'Category'">{{cat.Category}}</option>
+                                    </select>
+
+                                </div>
+                                <div class="form-group">
+                                    <label>Device:</label>
+                                    <select class="form-control" name="deviceType" ng-model="filterByDevice" required>
+                                        <option  ng-selected="true" value="">Choose a Device...</option>
+                                        <option ng-repeat="dev in device | unique:'dev' | filter:{Category:filterByCategory}">{{dev.dev}}</option>
+                                    </select>
+
+                                </div>
+                                <div class="form-group">
+                                    <label>Condition:</label>
+                                    <select class="form-control" name="devCondition"  ng-model="filterByCondition">
+                                        <option  ng-selected="true" value="">choose a device condition</option>
+                                        <option value="Old">Old</option>
+                                        <option value="New">New</option>
+                                        <option value="Refurbished">Refurbished</option>
+                                    </select>
+                                </div>
+                            </form>
+                            <div class="container custSearch">
+                                <form class="form-horizontal">
+                                    <div class="form-group ">
+                                        <input type="text" class="form-control col-lg-4 col-md-4"  type="text"  placeholder="Search... " ng-model="devTextSearch">
+                                    </div>
+                                </form>
+                            </div>
+
+
                             <div class="table-responsive">
                                 <table class="table table-hover">
                                     <thead>
                                     <tr>
                                         <th>Sno</th>
-                                        <th>Router</th>
-                                        <th>Floor</th>
-                                        <th>Room</th>
+                                        <th>Category</th>
+                                        <th>Entry type</th>
+                                        <th>Device</th>
+                                        <th>Brand</th>
+                                        <th>Quantity</th>
+                                        <th>Condition</th>
                                         <th>Description</th>
                                     </tr>
                                     </thead>
                                     <tbody >
-                                    <tr ng-repeat="entry in entries | filter: pubSearch" ng-click = "open('lg');">
+                                    <tr ng-repeat="entry in entries | filter: devTextSearch |filter: filterByCategory | filter: filterByDevice | filter: filterByCondition " ng-click = "open('lg');">
                                         <td>{{entry.Sno}}</td>
-                                        <td>{{entry.routerName}}</td>
-                                        <td>{{entry.floorNum}}</td>
-                                        <td>{{entry.roomNum}}</td>
-                                        <td>{{entry.description}}</td>
+                                        <td>{{entry.devCategory}}</td>
+                                        <td>{{entry.entryType}}</td>
+                                        <td>{{entry.devName}}</td>
+                                        <td>{{entry.brandName}}</td>
+                                        <td>{{entry.devQuantity}}</td>
+                                        <td>{{entry.Condition}}</td>
+                                        <td>{{entry.Description}}</td>
 
                                     </tr>
                                     </tbody>

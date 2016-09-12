@@ -1,0 +1,76 @@
+
+<div class="modal-header">
+    <h3 class="modal-title">Update Inventory  </h3>
+</div>
+<div class="modal-body">
+    <form role="form" class="form-horizontal" action="../server/updateinventory.php" method="post" ng-controller="addinventoryController" >
+        <h4>Entry No: {{items.Sno}}</h4>
+        <input type="hidden" name="entryid" value="{{items.Sno}}" >
+        <div class="form-group">
+            <label class="control-label col-md-2 col-lg-2" >Device category:</label>
+            <div class="col-lg-6 col-md-6">
+                <select class="form-control" name="devCategory" placeholder="Choose a catergory" ng-model="items.devCategory">
+                    <option ng-disabled="true" ng-selected="true" value="">Choose a catergory...</option>
+                    <option ng-repeat="cat in category | unique:'Category'">{{cat.Category}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2 col-lg-2" >Choose device :</label>
+            <div class="col-lg-6 col-md-6">
+                <select class="form-control" name="deviceType" placeholder="Choose an option that perfectly matches the device or choose the closest one " ng-model="items.devName" required>
+                    <option ng-disabled="true" ng-selected="true" value="">Choose a Device...</option>
+                    <option ng-repeat="dev in device | unique:'dev' | filter:{Category:devCat}">{{dev.dev}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2 col-lg-2">Entry type:</label>
+            <div class="col-lg-6 col-md-6">
+                <select class="form-control" id="entType" name="entryTyp" placeholder="Choose entry type" onchange="entry();" ng-model="items.entryType" required>
+                    <option value="">choose entry type</option>
+                    <option value="Bulk">Bulk</option>
+                    <option value="Single">Single</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2 col-lg-2">Brand name :</label>
+            <div class="col-lg-6 col-md-6">
+                <input type="text" class="form-control" name="brandName" placeholder="Enter Brand Name" value="{{items.brandName}}" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2 col-lg-2">Quantity:</label>
+            <div class="col-lg-6 col-md-6">
+                <input type="number" class="form-control" id="devQuant" name="devQuantity" min="1" placeholder="Enter quantity" value="{{items.devQuantity}}" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2 col-lg-2">Condition :</label>
+            <div class="col-lg-6 col-md-6">
+                <select class="form-control" name="deviceCondition" placeholder="Choose whether the device is new/old/refurbished" ng-model="items.Condition" required>
+                    <option value="">choose a device condition</option>
+                    <option value="Old">Old</option>
+                    <option value="New">New</option>
+                    <option value="Refurbished">Refurbished</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2 col-lg-2" >Description:</label>
+            <div class="col-lg-6 col-md-6">
+                <textarea  class="form-control" name="deviceDesc" placeholder="Provide device description or any information pertaining to the device..."  required>{{items.Description}}</textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10 col-lg-offset-2 col-lg-10">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="reset" class="btn btn-default">Cancel</button>
+            </div>
+        </div>
+    </form>
+
+</div>
+
