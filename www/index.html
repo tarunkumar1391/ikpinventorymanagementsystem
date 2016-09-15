@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -80,7 +81,7 @@
                                     <label class="control-label col-md-2 col-lg-2" >Device category:</label>
                                     <div class="col-lg-6 col-md-6">
                                         <select class="form-control" name="devCategory" placeholder="Choose a catergory" ng-model="devCat">
-                                            <option ng-disabled="true" ng-selected="true" value="">Choose a catergory...</option>
+                                            <option  ng-selected="true" value="">Choose a catergory...</option>
                                             <option ng-repeat="cat in category | unique:'Category'">{{cat.Category}}</option>
                                         </select>
                                     </div>
@@ -163,6 +164,7 @@
                                         <th>Quantity</th>
                                         <th>Condition</th>
                                         <th>Description</th>
+                                        <th>QR Data</th>
                                     </tr>
                                     </thead>
                                     <tbody >
@@ -173,9 +175,9 @@
                                         <td>{{entry.devName}}</td>
                                         <td>{{entry.brandName}}</td>
                                         <td>{{entry.devQuantity}}</td>
-                                        <td>{{entry.Condition}}</td>
+                                        <td>{{entry.devCondition}}</td>
                                         <td>{{entry.Description}}</td>
-
+                                        <td>{{entry.qrData}}</td>
                                     </tr>
                                     </tbody>
                                 </table>
@@ -244,7 +246,7 @@
                                         <td>{{entry.devName}}</td>
                                         <td>{{entry.brandName}}</td>
                                         <td>{{entry.devQuantity}}</td>
-                                        <td>{{entry.Condition}}</td>
+                                        <td>{{entry.devCondition}}</td>
                                         <td>{{entry.Description}}</td>
 
                                     </tr>
@@ -254,7 +256,7 @@
                         </div>
 
                     </div>
-                    <div id="switchInfo" class="tab-pane fade ">
+                    <div id="viewAssignments" class="tab-pane fade ">
                         <div class="container">
                             <div class="table-responsive">
                                 <table class="table table-hover" >
@@ -284,83 +286,82 @@
                         </div>
 
                     </div>
-                    <!-- Patching -->
-                    <div id="newSwitchPatching" class="tab-pane fade">
+                    <div id="assignHardware" class="tab-pane fade">
                         <div class="container">
-                            <form role="form" class="form-horizontal" action="../server/patchnew.php" method="post" >
-                                <h3>Assign new patch field</h3>
+                            <form role="form" class="form-horizontal" action="../server/assignhardware.php" method="post"  ng-controller="assignHardwareController">
+                                <h3>Assign Hardware</h3>
                                 <div class="divider"></div>
                                 <div class="form-group">
-                                    <label class="control-label col-sm-2" >Choose floor:</label>
+                                    <label class="control-label col-sm-2" >Assign to:</label>
                                     <div class="col-lg-8 col-md-8">
-                                        <!--<select class="form-control" name="patchFloor" ng-model="p" ng-options="c.floorNum for c in entries track by c.Sno">-->
-                                        <select class="form-control" name="patchFloor" ng-model="floorng">
-                                            <option ng-disabled="true" ng-selected="true" value="">Choose a floor...</option>
-                                            <option ng-repeat="fl in floors | unique:'floorNum'">{{fl.floorNum}}</option>
-
-
+                                        <input type="text" class="form-control" name="assigneeName" placeholder="Enter the name of the person to whom the hardware has to be assigned" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2" >Room No:</label>
+                                    <div class="col-lg-8 col-md-8">
+                                        <input type="text" class="form-control" name="assigneeRoom" placeholder="Enter Room no" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2" >email:</label>
+                                    <div class="col-lg-8 col-md-8">
+                                        <input type="email" class="form-control" name="assigneeEmail" placeholder="Enter email id" required >
+                                    </div>
+                                </div>
+                                <h4>Choose Hardware to assign</h4>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2 col-lg-2" >Device category:</label>
+                                    <div class="col-lg-6 col-md-6">
+                                        <select class="form-control" name="devCategory" placeholder="Choose a catergory" ng-model="devCat">
+                                            <option  ng-selected="true" value="">Choose a catergory...</option>
+                                            <option ng-repeat="cat in assign | unique:'devCategory'">{{cat.devCategory}}</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-sm-2" >Switch Room No:</label>
-                                    <div class="col-lg-8 col-md-8">
-                                        <select class="form-control" name="patchRoom" ng-model="swroom" >
-                                            <option ng-disabled="true" ng-selected="true" value="">Choose a room...</option>
-                                            <option ng-repeat="swr in room | filter:{floorNum:floorng} | unique:'switchRoom'">{{swr.switchRoom}}</option>
-
+                                    <label class="control-label col-md-2 col-lg-2" >Choose device :</label>
+                                    <div class="col-lg-6 col-md-6">
+                                        <select class="form-control" name="deviceType" placeholder="Choose an option that perfectly matches the device or choose the closest one " ng-model="devNg" required>
+                                            <option ng-disabled="true" ng-selected="true" value="">Choose a Device...</option>
+                                            <option ng-repeat="dev in assign | unique:'devName' | filter:{devCategory:devCat}">{{dev.devName}}</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-sm-2" >Choose a switch</label>
-                                    <div class="col-lg-8 col-md-8">
-                                        <select class="form-control" name="patchSwitch" >
-                                            <option ng-disabled="true" ng-selected="true" value="">Choose a switch...</option>
-                                            <option ng-repeat="swt in switch | filter:{switchRoom:swroom}">{{swt.switchName}}</option>
+                                    <label class="control-label col-md-2 col-lg-2" >Brand:</label>
+                                    <div class="col-lg-6 col-md-6">
+                                        <select class="form-control" name="deviceBrand" placeholder="Choose whether the device is new/old/refurbished" ng-model="devBrand" required>
+                                            <option ng-disabled="true" ng-selected="true" value="">choose a brand</option>
+                                            <option ng-repeat="brd in assign | unique:'brandName' | filter:{devName:devNg}">{{brd.brandName}}</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-sm-2">Enter Port No:</label>
-                                    <div class="col-lg-8 col-md-8">
-                                        <input type="text" class="form-control" name="patchPortnum" placeholder="Enter Port no." >
+                                    <label class="control-label col-md-2 col-lg-2" >Device Condition :</label>
+                                    <div class="col-lg-6 col-md-6">
+                                        <select class="form-control" name="deviceCond" placeholder="Choose whether the device is new/old/refurbished" required>
+                                            <option ng-disabled="true" ng-selected="true" value="">Choose a device condition:</option>
+                                            <option ng-repeat="conn in assign | unique:'devCondition' | filter:{brandName:devBrand}">{{conn.devCondition}}</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-sm-2" >Vlan Id:</label>
+                                    <label class="control-label col-sm-2" >Available stock:</label>
                                     <div class="col-lg-8 col-md-8">
-                                        <input type="number" class="form-control" name="patchVlanid" placeholder="Enter vlan id" >
+                                        <input type="number" min="1" class="form-control" name="availableQty" value=""  disabled required>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-sm-2" >Vlan name:</label>
+                                    <label class="control-label col-sm-2" >Quantity:</label>
                                     <div class="col-lg-8 col-md-8">
-                                        <input type="text" class="form-control" name="patchVlanname" placeholder="Enter vlan name" >
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-sm-2" >Patch field:</label>
-                                    <div class="col-lg-8 col-md-8">
-                                        <input type="text" class="form-control" name="patchField" placeholder="Enter patch field (source)" >
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-sm-2" >Destination room:</label>
-                                    <div class="col-lg-8 col-md-8">
-                                        <input type="text" class="form-control" name="patchDestroom" placeholder="Enter destination room" >
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-sm-2" >Destination jack:</label>
-                                    <div class="col-lg-8 col-md-8">
-                                        <input type="text" class="form-control" name="patchDestjack" placeholder="Enter destination jack" >
+                                        <input type="number" min="1" class="form-control" name="hardwareQty" placeholder="Enter Quantity" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-sm-2" >Comments:</label>
                                     <div class="col-lg-8 col-md-8">
-                                        <textarea class="form-control" name="patchComm" placeholder="Enter your comments here"></textarea>
+                                        <textarea class="form-control" name="hardComm" placeholder="Enter your comments here"></textarea>
                                     </div>
                                 </div>
 

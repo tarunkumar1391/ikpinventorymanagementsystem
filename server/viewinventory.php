@@ -21,7 +21,8 @@ while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
     $outp .= '"entryType":"'  . $rs["entryType"] . '",';
     $outp .= '"brandName":"'   . $rs["brandName"] . '",';
     $outp .= '"devQuantity":"'   . $rs["devQuantity"] . '",';
-    $outp .= '"Condition":"'. $rs["devCondition"] . '",';
+    $outp .= '"devCondition":"'. $rs["devCondition"] . '",';
+    $outp .= '"qrData":"'. $rs["qrData"] . '",';
     $outp .= '"Description":"'. $rs["devDescription"] . '"}';
 }
 $outp ='{"records":['.$outp.']}';
