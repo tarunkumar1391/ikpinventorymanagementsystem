@@ -35,7 +35,17 @@
                 devQuantity.disabled = "true";
             }
         }
+        function assign(){
+            var availStock = document.getElementById("avaStock");
+            var hardQty = document.getElementById("hrdQty");
 
+            if(availStock.value != 1){
+                hardQty.disabled = "";
+            }else{
+                hardQty.disabled = "true";
+                hardQty.value = 1;
+            }
+        }
     </script>
 </head>
 <body ng-app="inventoryApp" >
@@ -340,8 +350,8 @@
                                 <div class="form-group">
                                     <label class="control-label col-md-2 col-lg-2" >Device Condition :</label>
                                     <div class="col-lg-6 col-md-6">
-                                        <select class="form-control" name="deviceCond" placeholder="Choose whether the device is new/old/refurbished" required>
-                                            <option ng-disabled="true" ng-selected="true" value="">Choose a device condition:</option>
+                                        <select class="form-control" name="deviceCond" placeholder="Choose whether the device is new/old/refurbished" ng-model="devCond" required>
+                                            <option ng-disabled="true" ng-selected="true" value="">Choose a device condition</option>
                                             <option ng-repeat="conn in assign | unique:'devCondition' | filter:{brandName:devBrand}">{{conn.devCondition}}</option>
                                         </select>
                                     </div>
@@ -349,13 +359,16 @@
                                 <div class="form-group">
                                     <label class="control-label col-sm-2" >Available stock:</label>
                                     <div class="col-lg-8 col-md-8">
-                                        <input type="number" min="1" class="form-control" name="availableQty" value=""  disabled required>
+                                        <select class="form-control" name="availStock" placeholder="Available stock" id="avaStock" onchange="assign();">
+                                            <option ng-disabled="true" ng-selected="true" value="">----</option>
+                                           <option ng-repeat="quant in assign | unique:'devQuantity' | filter:{devCondition:devCond}">{{quant.devQuantity}}</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-sm-2" >Quantity:</label>
                                     <div class="col-lg-8 col-md-8">
-                                        <input type="number" min="1" class="form-control" name="hardwareQty" placeholder="Enter Quantity" required>
+                                        <input type="number" min="1" id="hrdQty" class="form-control" name="hardwareQty" placeholder="Enter Quantity" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -388,7 +401,7 @@
                                     <tr>
                                         <th>Sno</th>
                                         <th>Floor No.</th>
-                                        <th>Switch Room No.</th>
+                                        <th>Switch Room</th>
                                         <th>Switch Name</th>
                                         <th>Port num</th>
                                         <th>VLAN-ID</th>

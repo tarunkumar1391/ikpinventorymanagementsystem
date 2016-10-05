@@ -200,6 +200,7 @@ app.controller('assignHardwareController',function ($scope,$http) {
 
     $http.get('../server/viewinventory.php').then(function (response) {
         $scope.assign = response.data.records;
+        console.log($scope.assign);
 
     })
 
