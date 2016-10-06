@@ -106,16 +106,6 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-lg-2">Entry type:</label>
-                                    <div class="col-lg-6 col-md-6">
-                                        <select class="form-control" id="entType" name="entryType" placeholder="Choose entry type" onchange="entry();" required>
-                                            <option ng-disabled="true" ng-selected="true" value="">choose entry type</option>
-                                            <option value="Bulk">Bulk</option>
-                                            <option value="Single">Single</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group">
                                     <label class="control-label col-md-2 col-lg-2">Brand name :</label>
                                     <div class="col-lg-6 col-md-6">
                                         <input type="text" class="form-control" name="brandName" placeholder="Enter Brand Name" required>
@@ -168,7 +158,6 @@
                                     <tr>
                                         <th>Sno</th>
                                         <th>Category</th>
-                                        <th>Entry type</th>
                                         <th>Device</th>
                                         <th>Brand</th>
                                         <th>Quantity</th>
@@ -181,7 +170,6 @@
                                     <tr ng-repeat="entry in entries | filter: inventSearch">
                                         <td>{{entry.Sno}}</td>
                                         <td>{{entry.devCategory}}</td>
-                                        <td>{{entry.entryType}}</td>
                                         <td>{{entry.devName}}</td>
                                         <td>{{entry.brandName}}</td>
                                         <td>{{entry.devQuantity}}</td>
@@ -359,9 +347,18 @@
                                 <div class="form-group">
                                     <label class="control-label col-sm-2" >Available stock:</label>
                                     <div class="col-lg-8 col-md-8">
-                                        <select class="form-control" name="availStock" placeholder="Available stock" id="avaStock" onchange="assign();">
+                                        <select class="form-control" name="availStock" placeholder="Available stock" id="avaStock" ng-model="availStock" onchange="assign();">
                                             <option ng-disabled="true" ng-selected="true" value="">----</option>
                                            <option ng-repeat="quant in assign | unique:'devQuantity' | filter:{devCondition:devCond}">{{quant.devQuantity}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-2" >Select QR Code:</label>
+                                    <div class="col-lg-8 col-md-8">
+                                        <select class="form-control" name="qrData">
+                                            <option ng-disabled="true" ng-selected="true" value="">----</option>
+                                            <option ng-repeat="qrd in assign | unique:'qrData' | filter:{devQuantity:availStock}">{{qrd.qrData}}</option>
                                         </select>
                                     </div>
                                 </div>

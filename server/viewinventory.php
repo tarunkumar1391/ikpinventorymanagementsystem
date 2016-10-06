@@ -18,7 +18,6 @@ while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
     $outp .= '{"Sno":"'  . $rs["sno"] . '",';
     $outp .= '"devCategory":"'  . $rs["devCategory"] . '",';
     $outp .= '"devName":"'  . $rs["devName"] . '",';
-    $outp .= '"entryType":"'  . $rs["entryType"] . '",';
     $outp .= '"brandName":"'   . $rs["brandName"] . '",';
     $outp .= '"devQuantity":"'   . $rs["devQuantity"] . '",';
     $outp .= '"devCondition":"'. $rs["devCondition"] . '",';

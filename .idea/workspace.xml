@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8375da70-c516-4a01-bd5c-64df659f4d25" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/js/control.js" afterPath="$PROJECT_DIR$/scripts/js/control.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/addinventory.php" afterPath="$PROJECT_DIR$/server/addinventory.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/assignhardware.php" afterPath="$PROJECT_DIR$/server/assignhardware.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/viewinventory.php" afterPath="$PROJECT_DIR$/server/viewinventory.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/index.html" afterPath="$PROJECT_DIR$/www/index.html" />
     </list>
     <ignored path="ikpinventorymanagementsystem.iws" />
@@ -39,18 +40,20 @@
       <file leaf-file-name="viewinventory.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/viewinventory.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="26" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="26" />
-              <folding />
+            <state relative-caret-position="323">
+              <caret line="19" column="52" selection-start-line="19" selection-start-column="52" selection-end-line="19" selection-end-column="52" />
+              <folding>
+                <marker date="1475760186343" expanded="true" signature="267:290" placeholder="SELECT * FRO... inventory" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
-              <caret line="353" column="124" selection-start-line="353" selection-start-column="124" selection-end-line="353" selection-end-column="124" />
+            <state relative-caret-position="1261">
+              <caret line="358" column="81" selection-start-line="358" selection-start-column="75" selection-end-line="358" selection-end-column="81" />
               <folding />
             </state>
           </provider>
@@ -59,19 +62,22 @@
       <file leaf-file-name="control.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/js/control.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="701">
+            <state relative-caret-position="1058">
               <caret line="202" column="35" selection-start-line="202" selection-start-column="35" selection-end-line="202" selection-end-column="35" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="assignhardware.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="assignhardware.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server/assignhardware.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="372">
+              <caret line="29" column="32" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
+              <folding>
+                <marker date="1475763604465" expanded="true" signature="578:758" placeholder="INSERT INTO hardwareassignments... " />
+                <marker date="1475763604465" expanded="true" signature="947:996" placeholder="UPDATE inven... " />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -79,11 +85,11 @@
       <file leaf-file-name="addinventory.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/addinventory.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+            <state relative-caret-position="828">
+              <caret line="68" column="2" selection-start-line="10" selection-start-column="0" selection-end-line="68" selection-end-column="2" />
               <folding>
                 <element signature="e#6#90#0#PHP" expanded="true" />
-                <marker date="1474279267817" expanded="true" signature="567:727" placeholder="INSERT INTO inventory... " />
+                <marker date="1475760100658" expanded="true" signature="554:700" placeholder="INSERT INTO inventory... " />
               </folding>
             </state>
           </provider>
@@ -107,11 +113,12 @@
         <option value="$PROJECT_DIR$/css/main.css" />
         <option value="$PROJECT_DIR$/server/updateinventory.php" />
         <option value="$PROJECT_DIR$/www/index.php" />
-        <option value="$PROJECT_DIR$/server/viewinventory.php" />
         <option value="$PROJECT_DIR$/www/updatemodal.html" />
-        <option value="$PROJECT_DIR$/server/addinventory.php" />
         <option value="$PROJECT_DIR$/scripts/js/control.js" />
+        <option value="$PROJECT_DIR$/server/addinventory.php" />
+        <option value="$PROJECT_DIR$/server/viewinventory.php" />
         <option value="$PROJECT_DIR$/www/index.html" />
+        <option value="$PROJECT_DIR$/server/assignhardware.php" />
       </list>
     </option>
   </component>
@@ -225,7 +232,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ikpsoftwaremanagement" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="js-jscs-nodeInterpreter" value="/usr/bin/node" />
@@ -285,12 +292,12 @@
       <workItem from="1473930393831" duration="19535000" />
       <workItem from="1474292013541" duration="64000" />
       <workItem from="1474885163380" duration="1364000" />
-      <workItem from="1474896363238" duration="9182000" />
+      <workItem from="1474896363238" duration="13451000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57459000" />
+    <option name="totallyTimeSpent" value="61728000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="0" width="1684" height="1026" extended-state="0" />
@@ -351,7 +358,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="23" column="26" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="26" />
-          <folding />
+          <folding>
+            <marker date="1475760186343" expanded="true" signature="267:290" placeholder="SELECT * FRO... inventory" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -367,7 +376,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1475763604465" expanded="true" signature="578:758" placeholder="INSERT INTO hardwareassignments... " />
+            <marker date="1475763604465" expanded="true" signature="947:996" placeholder="UPDATE inven... " />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -377,7 +389,7 @@
           <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding>
             <element signature="e#6#90#0#PHP" expanded="true" />
-            <marker date="1474279267817" expanded="true" signature="567:727" placeholder="INSERT INTO inventory... " />
+            <marker date="1475760100658" expanded="true" signature="554:700" placeholder="INSERT INTO inventory... " />
           </folding>
         </state>
       </provider>
@@ -402,7 +414,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="23" column="26" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="26" />
-          <folding />
+          <folding>
+            <marker date="1475760186343" expanded="true" signature="267:290" placeholder="SELECT * FRO... inventory" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -418,7 +432,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1475763604465" expanded="true" signature="578:758" placeholder="INSERT INTO hardwareassignments... " />
+            <marker date="1475763604465" expanded="true" signature="947:996" placeholder="UPDATE inven... " />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -428,7 +445,7 @@
           <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding>
             <element signature="e#6#90#0#PHP" expanded="true" />
-            <marker date="1474279267817" expanded="true" signature="567:727" placeholder="INSERT INTO inventory... " />
+            <marker date="1475760100658" expanded="true" signature="554:700" placeholder="INSERT INTO inventory... " />
           </folding>
         </state>
       </provider>
@@ -453,7 +470,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="22" column="26" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="26" />
-          <folding />
+          <folding>
+            <marker date="1475760186343" expanded="true" signature="267:290" placeholder="SELECT * FRO... inventory" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -469,7 +488,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1475763604465" expanded="true" signature="578:758" placeholder="INSERT INTO hardwareassignments... " />
+            <marker date="1475763604465" expanded="true" signature="947:996" placeholder="UPDATE inven... " />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -479,7 +501,7 @@
           <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding>
             <element signature="e#6#90#0#PHP" expanded="true" />
-            <marker date="1474279267817" expanded="true" signature="567:727" placeholder="INSERT INTO inventory... " />
+            <marker date="1475760100658" expanded="true" signature="554:700" placeholder="INSERT INTO inventory... " />
           </folding>
         </state>
       </provider>
@@ -519,7 +541,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
           <caret line="22" column="51" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="51" />
-          <folding />
+          <folding>
+            <marker date="1475760186343" expanded="true" signature="267:290" placeholder="SELECT * FRO... inventory" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -529,7 +553,7 @@
           <caret line="46" column="37" selection-start-line="34" selection-start-column="4" selection-end-line="46" selection-end-column="37" />
           <folding>
             <element signature="e#6#90#0#PHP" expanded="true" />
-            <marker date="1474279267817" expanded="true" signature="567:727" placeholder="INSERT INTO inventory... " />
+            <marker date="1475760100658" expanded="true" signature="554:700" placeholder="INSERT INTO inventory... " />
           </folding>
         </state>
       </provider>
@@ -554,7 +578,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="22" column="51" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="51" />
-          <folding />
+          <folding>
+            <marker date="1475760186343" expanded="true" signature="267:290" placeholder="SELECT * FRO... inventory" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -564,7 +590,7 @@
           <caret line="41" column="89" selection-start-line="41" selection-start-column="89" selection-end-line="41" selection-end-column="89" />
           <folding>
             <element signature="e#6#90#0#PHP" expanded="true" />
-            <marker date="1474279267817" expanded="true" signature="567:727" placeholder="INSERT INTO inventory... " />
+            <marker date="1475760100658" expanded="true" signature="554:700" placeholder="INSERT INTO inventory... " />
           </folding>
         </state>
       </provider>
@@ -606,46 +632,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/addinventory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding>
-            <element signature="e#6#90#0#PHP" expanded="true" />
-            <marker date="1474279267817" expanded="true" signature="567:727" placeholder="INSERT INTO inventory... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/assignhardware.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/js/control.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="701">
+        <state relative-caret-position="1058">
           <caret line="202" column="35" selection-start-line="202" selection-start-column="35" selection-end-line="202" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/server/addinventory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="828">
+          <caret line="68" column="2" selection-start-line="10" selection-start-column="0" selection-end-line="68" selection-end-column="2" />
+          <folding>
+            <element signature="e#6#90#0#PHP" expanded="true" />
+            <marker date="1475760100658" expanded="true" signature="554:700" placeholder="INSERT INTO inventory... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/server/viewinventory.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="26" selection-start-line="18" selection-start-column="15" selection-end-line="18" selection-end-column="26" />
-          <folding />
+        <state relative-caret-position="323">
+          <caret line="19" column="52" selection-start-line="19" selection-start-column="52" selection-end-line="19" selection-end-column="52" />
+          <folding>
+            <marker date="1475760186343" expanded="true" signature="267:290" placeholder="SELECT * FRO... inventory" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="353" column="124" selection-start-line="353" selection-start-column="124" selection-end-line="353" selection-end-column="124" />
+        <state relative-caret-position="1261">
+          <caret line="358" column="81" selection-start-line="358" selection-start-column="75" selection-end-line="358" selection-end-column="81" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/assignhardware.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="29" column="32" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
+          <folding>
+            <marker date="1475763604465" expanded="true" signature="578:758" placeholder="INSERT INTO hardwareassignments... " />
+            <marker date="1475763604465" expanded="true" signature="947:996" placeholder="UPDATE inven... " />
+          </folding>
         </state>
       </provider>
     </entry>

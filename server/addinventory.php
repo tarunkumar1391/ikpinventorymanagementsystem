@@ -13,7 +13,7 @@ $username = "root";
 $password = "";
 $dbname = "ikp";
 //define variables
-$devCategory = $deviceType = $entryType =  $brandName = $devQuantity = $deviceCondition = $deviceDesc = $qrdata = $timeStmp = $qrimg ="";
+$devCategory = $deviceType =  $brandName = $devQuantity = $deviceCondition = $deviceDesc = $qrdata = $timeStmp = $qrimg ="";
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -23,8 +23,8 @@ if ($conn->connect_error) {
 }
 
 // prepare and bind
-$stmt = $conn->prepare("INSERT INTO inventory (devCategory, devName, entryType, brandName, devQuantity, devCondition, devDescription,qrData, timeStmp) VALUES (?,?, ?, ?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("ssssissss", $devCategory, $deviceType, $entryType, $brandName, $devQuantity, $deviceCondition, $deviceDesc, $qrdata, $timeStmp  );
+$stmt = $conn->prepare("INSERT INTO inventory (devCategory, devName, brandName, devQuantity, devCondition, devDescription,qrData, timeStmp) VALUES (?,?, ?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("ssssissss", $devCategory, $deviceType, $brandName, $devQuantity, $deviceCondition, $deviceDesc, $qrdata, $timeStmp  );
 
 function input($data) {
     $data = trim($data);
@@ -37,14 +37,8 @@ function input($data) {
 if($_SERVER['REQUEST_METHOD'] == "POST") {
     $devCategory = isset($_POST['devCategory']) ? input($_POST['devCategory']) : "0";
     $deviceType = isset($_POST['deviceType']) ? input($_POST['deviceType']) : "0";
-    $entryType = isset($_POST['entryType']) ? input($_POST['entryType']) : "0";
     $brandName = isset($_POST['brandName']) ? input($_POST['brandName']) : "0";
-    if($entryType == "Single"){
-        $devQuantity = 1;
-    } else {
-        $devQuantity = isset($_POST['devQuantity']) ? input($_POST['devQuantity']) : "0";
-    }
-
+    $devQuantity = isset($_POST['devQuantity']) ? input($_POST['devQuantity']) : "0";
     $deviceCondition = isset($_POST['deviceCondition']) ? input($_POST['deviceCondition']) : "0";
     $deviceDesc = isset($_POST['deviceDesc']) ? input($_POST['deviceDesc']) : "0";
     $tempDir = "/qrimg/";
