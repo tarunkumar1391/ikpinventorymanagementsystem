@@ -228,7 +228,6 @@
                                     <tr>
                                         <th>Sno</th>
                                         <th>Category</th>
-                                        <th>Entry type</th>
                                         <th>Device</th>
                                         <th>Brand</th>
                                         <th>Quantity</th>
@@ -240,7 +239,6 @@
                                     <tr ng-repeat="entry in entries | filter: devTextSearch |filter: filterByCategory | filter: filterByDevice | filter: filterByCondition " ng-click = "open('lg');">
                                         <td>{{entry.Sno}}</td>
                                         <td>{{entry.devCategory}}</td>
-                                        <td>{{entry.entryType}}</td>
                                         <td>{{entry.devName}}</td>
                                         <td>{{entry.brandName}}</td>
                                         <td>{{entry.devQuantity}}</td>
@@ -345,20 +343,20 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-sm-2" >Available stock:</label>
+                                    <label class="control-label col-sm-2" >Select QR Code:</label>
                                     <div class="col-lg-8 col-md-8">
-                                        <select class="form-control" name="availStock" placeholder="Available stock" id="avaStock" ng-model="availStock" onchange="assign();">
+                                        <select class="form-control" name="qrData" ng-model="qrDat">
                                             <option ng-disabled="true" ng-selected="true" value="">----</option>
-                                           <option ng-repeat="quant in assign | unique:'devQuantity' | filter:{devCondition:devCond}">{{quant.devQuantity}}</option>
+                                            <option ng-repeat="qrd in assign | unique:'qrData' | filter:{devCondition:devCond}">{{qrd.qrData}}</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-sm-2" >Select QR Code:</label>
+                                    <label class="control-label col-sm-2" >Available stock:</label>
                                     <div class="col-lg-8 col-md-8">
-                                        <select class="form-control" name="qrData">
+                                        <select class="form-control" name="availStock" placeholder="Available stock" id="avaStock" ng-model="availStock" onchange="assign();">
                                             <option ng-disabled="true" ng-selected="true" value="">----</option>
-                                            <option ng-repeat="qrd in assign | unique:'qrData' | filter:{devQuantity:availStock}">{{qrd.qrData}}</option>
+                                           <option ng-repeat="quant in assign | unique:'devQuantity'| filter:{qrData:qrDat}">{{quant.devQuantity}}</option>
                                         </select>
                                     </div>
                                 </div>

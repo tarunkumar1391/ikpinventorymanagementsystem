@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8375da70-c516-4a01-bd5c-64df659f4d25" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/addinventory.php" afterPath="$PROJECT_DIR$/server/addinventory.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/assignhardware.php" afterPath="$PROJECT_DIR$/server/assignhardware.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/viewinventory.php" afterPath="$PROJECT_DIR$/server/viewinventory.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/index.html" afterPath="$PROJECT_DIR$/www/index.html" />
     </list>
     <ignored path="ikpinventorymanagementsystem.iws" />
@@ -49,11 +47,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1261">
-              <caret line="358" column="81" selection-start-line="358" selection-start-column="75" selection-end-line="358" selection-end-column="81" />
+            <state relative-caret-position="572">
+              <caret line="240" column="70" selection-start-line="240" selection-start-column="70" selection-end-line="240" selection-end-column="70" />
               <folding />
             </state>
           </provider>
@@ -69,7 +67,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="assignhardware.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="assignhardware.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/assignhardware.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="372">
@@ -85,8 +83,8 @@
       <file leaf-file-name="addinventory.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/addinventory.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="828">
-              <caret line="68" column="2" selection-start-line="10" selection-start-column="0" selection-end-line="68" selection-end-column="2" />
+            <state relative-caret-position="216">
+              <caret line="32" column="17" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
               <folding>
                 <element signature="e#6#90#0#PHP" expanded="true" />
                 <marker date="1475760100658" expanded="true" signature="554:700" placeholder="INSERT INTO inventory... " />
@@ -117,8 +115,8 @@
         <option value="$PROJECT_DIR$/scripts/js/control.js" />
         <option value="$PROJECT_DIR$/server/addinventory.php" />
         <option value="$PROJECT_DIR$/server/viewinventory.php" />
-        <option value="$PROJECT_DIR$/www/index.html" />
         <option value="$PROJECT_DIR$/server/assignhardware.php" />
+        <option value="$PROJECT_DIR$/www/index.html" />
       </list>
     </option>
   </component>
@@ -292,18 +290,18 @@
       <workItem from="1473930393831" duration="19535000" />
       <workItem from="1474292013541" duration="64000" />
       <workItem from="1474885163380" duration="1364000" />
-      <workItem from="1474896363238" duration="13451000" />
+      <workItem from="1474896363238" duration="18593000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61728000" />
+    <option name="totallyTimeSpent" value="66870000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="0" width="1684" height="1026" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.110311754" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15647481" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -640,17 +638,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/addinventory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="828">
-          <caret line="68" column="2" selection-start-line="10" selection-start-column="0" selection-end-line="68" selection-end-column="2" />
-          <folding>
-            <element signature="e#6#90#0#PHP" expanded="true" />
-            <marker date="1475760100658" expanded="true" signature="554:700" placeholder="INSERT INTO inventory... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/viewinventory.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -658,14 +645,6 @@
           <folding>
             <marker date="1475760186343" expanded="true" signature="267:290" placeholder="SELECT * FRO... inventory" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1261">
-          <caret line="358" column="81" selection-start-line="358" selection-start-column="75" selection-end-line="358" selection-end-column="81" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -677,6 +656,25 @@
             <marker date="1475763604465" expanded="true" signature="578:758" placeholder="INSERT INTO hardwareassignments... " />
             <marker date="1475763604465" expanded="true" signature="947:996" placeholder="UPDATE inven... " />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/addinventory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="32" column="17" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
+          <folding>
+            <element signature="e#6#90#0#PHP" expanded="true" />
+            <marker date="1475760100658" expanded="true" signature="554:700" placeholder="INSERT INTO inventory... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="240" column="70" selection-start-line="240" selection-start-column="70" selection-end-line="240" selection-end-column="70" />
+          <folding />
         </state>
       </provider>
     </entry>
