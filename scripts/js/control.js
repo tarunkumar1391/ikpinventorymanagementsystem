@@ -72,13 +72,56 @@ app.controller('addinventoryController',function ($scope,$http, $uibModal, $log)
     
 });
 
-app.controller('viewInventoryController',function ($scope,$http) {
+app.controller('viewInventoryController',function ($scope,$http,$uibModal, $log) {
+//also for assigning hardware as well
 
     $http.get('../server/viewinventory.php').then(function (response) {
         $scope.entries = response.data.records;
 
+        $scope.animationsEnabled = true;
+        $scope.open = function(size){
+
+            $scope.items = this.entry;
+            console.log($scope.items);
+
+
+            var modalInstance = $uibModal.open({
+                animation: $scope.animationsEnabled,
+                templateUrl: 'assignhardware.html',
+                controller: 'assignHardController',
+                size: size,
+                resolve: {
+                    items: function () {
+                        return $scope.items;
+                    }
+                }
+            });
+
+            modalInstance.result.then(function (selectedItem) {
+                $scope.selected = selectedItem;
+            }, function () {
+                $log.info('Modal dismissed at: ' + new Date());
+            });
+        };
+
+        $scope.toggleAnimation = function () {
+            $scope.animationsEnabled = !$scope.animationsEnabled;
+        };
     })
     
+});
+app.controller('assignHardController', function ($scope, $uibModalInstance, items) {
+
+    $scope.items = items;
+
+
+    $scope.ok = function () {
+        $uibModalInstance.close($scope.selected.item);
+    };
+
+    $scope.cancel = function () {
+        $uibModalInstance.dismiss('cancel');
+    };
 });
 
 app.controller('updateInventoryController',function ($scope,$http,$uibModal, $log) {
@@ -196,12 +239,14 @@ app.controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, items) 
         $uibModalInstance.dismiss('cancel');
     };
 });
-app.controller('assignHardwareController',function ($scope,$http) {
+app.controller('assignHardwareController',function ($scope,$http,$uibModal, $log) {
 
     $http.get('../server/viewinventory.php').then(function (response) {
         $scope.assign = response.data.records;
         console.log($scope.assign);
 
+
     })
 
 });
+

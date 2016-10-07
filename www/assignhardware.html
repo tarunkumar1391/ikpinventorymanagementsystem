@@ -1,0 +1,104 @@
+
+<div class="modal-header">
+    <h3 class="modal-title">Hardware Assignment </h3>
+</div>
+<div class="modal-body">
+    <form role="form" class="form-horizontal" action="../server/assignhardware.php" method="post"  ng-controller="assignHardwareController">
+        <h3>Assign Hardware</h3>
+        <div class="divider"></div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" >Assign to:</label>
+            <div class="col-lg-8 col-md-8">
+                <input type="text" class="form-control" name="assigneeName" placeholder="Enter the name of the person to whom the hardware has to be assigned" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" >Room No:</label>
+            <div class="col-lg-8 col-md-8">
+                <input type="text" class="form-control" name="assigneeRoom" placeholder="Enter Room no" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" >email:</label>
+            <div class="col-lg-8 col-md-8">
+                <input type="email" class="form-control" name="assigneeEmail" placeholder="Enter email id" required >
+            </div>
+        </div>
+        <h4>Choose Hardware to assign</h4>
+        <div class="form-group">
+            <label class="control-label col-md-2 col-lg-2" >Device category:</label>
+            <div class="col-lg-6 col-md-6">
+                <select class="form-control" name="devCategory" placeholder="Choose a catergory" ng-model="devCat">
+                    <option  ng-selected="true" value="">Choose a catergory...</option>
+                    <option ng-repeat="cat in assign | unique:'devCategory'">{{cat.devCategory}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2 col-lg-2" >Choose device :</label>
+            <div class="col-lg-6 col-md-6">
+                <select class="form-control" name="deviceType" placeholder="Choose an option that perfectly matches the device or choose the closest one " ng-model="devNg" required>
+                    <option ng-disabled="true" ng-selected="true" value="">Choose a Device...</option>
+                    <option ng-repeat="dev in assign | unique:'devName' | filter:{devCategory:devCat}">{{dev.devName}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2 col-lg-2" >Brand:</label>
+            <div class="col-lg-6 col-md-6">
+                <select class="form-control" name="deviceBrand" placeholder="Choose whether the device is new/old/refurbished" ng-model="devBrand" required>
+                    <option ng-disabled="true" ng-selected="true" value="">choose a brand</option>
+                    <option ng-repeat="brd in assign | unique:'brandName' | filter:{devName:devNg}">{{brd.brandName}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2 col-lg-2" >Device Condition :</label>
+            <div class="col-lg-6 col-md-6">
+                <select class="form-control" name="deviceCond" placeholder="Choose whether the device is new/old/refurbished" ng-model="devCond" required>
+                    <option ng-disabled="true" ng-selected="true" value="">Choose a device condition</option>
+                    <option ng-repeat="conn in assign | unique:'devCondition' | filter:{brandName:devBrand}">{{conn.devCondition}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" >Select QR Code:</label>
+            <div class="col-lg-8 col-md-8">
+                <select class="form-control" name="qrData" ng-model="qrDat">
+                    <option ng-disabled="true" ng-selected="true" value="">----</option>
+                    <option ng-repeat="qrd in assign | unique:'qrData' | filter:{devCondition:devCond}">{{qrd.qrData}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" >Available stock:</label>
+            <div class="col-lg-8 col-md-8">
+                <select class="form-control" name="availStock" placeholder="Available stock" id="avaStock" ng-model="availStock" onchange="assign();">
+                    <option ng-disabled="true" ng-selected="true" value="">----</option>
+                    <option ng-repeat="quant in assign | unique:'devQuantity'| filter:{qrData:qrDat}">{{quant.devQuantity}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" >Quantity:</label>
+            <div class="col-lg-8 col-md-8">
+                <input type="number" min="1" id="hrdQty" class="form-control" name="hardwareQty" placeholder="Enter Quantity" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" >Comments:</label>
+            <div class="col-lg-8 col-md-8">
+                <textarea class="form-control" name="hardComm" placeholder="Enter your comments here"></textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="reset" class="btn btn-default">Cancel</button>
+            </div>
+        </div>
+    </form>
+
+</div>
+

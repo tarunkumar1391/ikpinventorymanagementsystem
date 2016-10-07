@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8375da70-c516-4a01-bd5c-64df659f4d25" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/assignhardware.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/js/control.js" afterPath="$PROJECT_DIR$/scripts/js/control.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/index.html" afterPath="$PROJECT_DIR$/www/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/updatemodal.html" afterPath="$PROJECT_DIR$/www/updatemodal.html" />
     </list>
     <ignored path="ikpinventorymanagementsystem.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,8 +31,18 @@
       <file leaf-file-name="updatemodal.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/updatemodal.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="867">
-              <caret line="51" column="159" selection-start-line="51" selection-start-column="159" selection-end-line="51" selection-end-column="159" />
+            <state relative-caret-position="85">
+              <caret line="5" column="99" selection-start-line="5" selection-start-column="99" selection-end-line="5" selection-end-column="99" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="assignhardware.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/assignhardware.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1700">
+              <caret line="100" column="11" selection-start-line="100" selection-start-column="11" selection-end-line="100" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -47,21 +60,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="572">
-              <caret line="240" column="70" selection-start-line="240" selection-start-column="70" selection-end-line="240" selection-end-column="70" />
+            <state relative-caret-position="476">
+              <caret line="169" column="116" selection-start-line="169" selection-start-column="116" selection-end-line="169" selection-end-column="116" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="control.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="control.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/scripts/js/control.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1058">
-              <caret line="202" column="35" selection-start-line="202" selection-start-column="35" selection-end-line="202" selection-end-column="35" />
+            <state relative-caret-position="361">
+              <caret line="85" column="0" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -111,12 +124,13 @@
         <option value="$PROJECT_DIR$/css/main.css" />
         <option value="$PROJECT_DIR$/server/updateinventory.php" />
         <option value="$PROJECT_DIR$/www/index.php" />
-        <option value="$PROJECT_DIR$/www/updatemodal.html" />
-        <option value="$PROJECT_DIR$/scripts/js/control.js" />
         <option value="$PROJECT_DIR$/server/addinventory.php" />
         <option value="$PROJECT_DIR$/server/viewinventory.php" />
         <option value="$PROJECT_DIR$/server/assignhardware.php" />
+        <option value="$PROJECT_DIR$/www/assignhardware.html" />
         <option value="$PROJECT_DIR$/www/index.html" />
+        <option value="$PROJECT_DIR$/www/updatemodal.html" />
+        <option value="$PROJECT_DIR$/scripts/js/control.js" />
       </list>
     </option>
   </component>
@@ -209,10 +223,6 @@
               <option name="myItemId" value="scripts" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -290,12 +300,12 @@
       <workItem from="1473930393831" duration="19535000" />
       <workItem from="1474292013541" duration="64000" />
       <workItem from="1474885163380" duration="1364000" />
-      <workItem from="1474896363238" duration="18593000" />
+      <workItem from="1474896363238" duration="20532000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66870000" />
+    <option name="totallyTimeSpent" value="68809000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="0" width="1684" height="1026" extended-state="0" />
@@ -622,19 +632,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/index.php" />
-    <entry file="file://$PROJECT_DIR$/www/updatemodal.html">
+    <entry file="file://$PROJECT_DIR$/server/addinventory.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="867">
-          <caret line="51" column="159" selection-start-line="51" selection-start-column="159" selection-end-line="51" selection-end-column="159" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/js/control.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1058">
-          <caret line="202" column="35" selection-start-line="202" selection-start-column="35" selection-end-line="202" selection-end-column="35" />
-          <folding />
+        <state relative-caret-position="216">
+          <caret line="32" column="17" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
+          <folding>
+            <element signature="e#6#90#0#PHP" expanded="true" />
+            <marker date="1475760100658" expanded="true" signature="554:700" placeholder="INSERT INTO inventory... " />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -645,6 +650,22 @@
           <folding>
             <marker date="1475760186343" expanded="true" signature="267:290" placeholder="SELECT * FRO... inventory" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/assignhardware.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1700">
+          <caret line="100" column="11" selection-start-line="100" selection-start-column="11" selection-end-line="100" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="169" column="116" selection-start-line="169" selection-start-column="116" selection-end-line="169" selection-end-column="116" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -659,21 +680,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/addinventory.php">
+    <entry file="file://$PROJECT_DIR$/www/updatemodal.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="32" column="17" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
-          <folding>
-            <element signature="e#6#90#0#PHP" expanded="true" />
-            <marker date="1475760100658" expanded="true" signature="554:700" placeholder="INSERT INTO inventory... " />
-          </folding>
+        <state relative-caret-position="85">
+          <caret line="5" column="99" selection-start-line="5" selection-start-column="99" selection-end-line="5" selection-end-column="99" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/index.html">
+    <entry file="file://$PROJECT_DIR$/scripts/js/control.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="240" column="70" selection-start-line="240" selection-start-column="70" selection-end-line="240" selection-end-column="70" />
+        <state relative-caret-position="361">
+          <caret line="85" column="0" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
           <folding />
         </state>
       </provider>
