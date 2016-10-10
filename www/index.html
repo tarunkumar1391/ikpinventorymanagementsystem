@@ -67,9 +67,8 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Assign<span class="caret"></span></a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Assignments<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a data-toggle="tab" href="#assignHardware">Hardware</a></li>
                         <li><a data-toggle="tab" href="#viewAssignments">View</a></li>
                         <li><a data-toggle="tab" href="#updateAssignments">Update</a></li>
                     </ul>
@@ -182,7 +181,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div id="UpdateInventory" class="tab-pane fade" ng-controller = "updateInventoryController">
                         <div class="container">
                             <form role="form" class="form-inline"  method="post"  >
@@ -193,7 +191,6 @@
                                         <option  ng-selected="true" value="">Choose a catergory...</option>
                                         <option ng-repeat="cat in category | unique:'Category'">{{cat.Category}}</option>
                                     </select>
-
                                 </div>
                                 <div class="form-group">
                                     <label>Device:</label>
@@ -201,7 +198,6 @@
                                         <option  ng-selected="true" value="">Choose a Device...</option>
                                         <option ng-repeat="dev in device | unique:'dev' | filter:{Category:filterByCategory}">{{dev.dev}}</option>
                                     </select>
-
                                 </div>
                                 <div class="form-group">
                                     <label>Condition:</label>
@@ -220,8 +216,6 @@
                                     </div>
                                 </form>
                             </div>
-
-
                             <div class="table-responsive">
                                 <table class="table table-hover">
                                     <thead>
@@ -244,104 +238,85 @@
                                         <td>{{entry.devQuantity}}</td>
                                         <td>{{entry.devCondition}}</td>
                                         <td>{{entry.Description}}</td>
-
                                     </tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
-
                     </div>
-                    <div id="viewAssignments" class="tab-pane fade ">
+                    <div id="viewAssignments" class="tab-pane fade " ng-controller="viewAssignmentsController">
                         <div class="container">
-                            <div class="table-responsive">
-                                <table class="table table-hover" >
-                                    <thead>
-                                    <tr>
-                                        <th>Sno</th>
-                                        <th>Switch</th>
-                                        <th>No. of ports</th>
-                                        <th>Floor</th>
-                                        <th>Room</th>
-                                        <th>Description</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody >
-                                    <tr ng-repeat="entry in entries | filter: pubSearch">
-                                        <td>{{entry.Sno}}</td>
-                                        <td>{{entry.switchName}}</td>
-                                        <td>{{entry.noofPorts}}</td>
-                                        <td>{{entry.floorNum}}</td>
-                                        <td>{{entry.roomNum}}</td>
-                                        <td>{{entry.description}}</td>
-
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div id="assignHardware" class="tab-pane fade">
-                        <div class="container">
-
-                        </div>
-                    </div>
-                    <div id="viewSwitchpatching" class="tab-pane fade " >
-                        <div class="container">
-                            <form class="form" role="form">
+                            <form class="form" role="form"> <!-- search field(incomplete) size="78"-->
                                 <div class="form-group ">
-                                    <input type="text" class="form-control"  type="text"  placeholder="Search... " ng-model="patchSearch">
+                                    <input type="text" class="form-control"  type="text"  placeholder="Search... " ng-model="allotSearch">
                                 </div>
-
                             </form>
                             <div class="table-responsive">
                                 <table class="table table-hover" >
                                     <thead>
                                     <tr>
                                         <th>Sno</th>
-                                        <th>Floor No.</th>
-                                        <th>Switch Room</th>
-                                        <th>Switch Name</th>
-                                        <th>Port num</th>
-                                        <th>VLAN-ID</th>
-                                        <th>VLAN-Name</th>
-                                        <th>Source</th>
-                                        <th>Destination Room</th>
-                                        <th>Destination Jack</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Room No.</th>
+                                        <th>Device</th>
+                                        <th>Condition</th>
                                         <th>Comments</th>
-
                                     </tr>
                                     </thead>
                                     <tbody >
-                                    <tr ng-repeat="entry in entries | filter: patchSearch" >
+                                    <tr ng-repeat="entry in entries | filter: allotSearch" ng-click = "open('lg');">
                                         <td>{{entry.Sno}}</td>
-                                        <td>{{entry.floorNum}}</td>
-                                        <td>{{entry.switchRoom}}</td>
-                                        <td>{{entry.switchName}}</td>
-                                        <td>{{entry.switchPortnum}}</td>
-                                        <td>{{entry.vlanId}}</td>
-                                        <td>{{entry.vlanName}}</td>
-                                        <td>{{entry.patchFieldsrc}}</td>
-                                        <td>{{entry.destinationRoom}}</td>
-                                        <td>{{entry.destinationJack}}</td>
-                                        <td>{{entry.comments}}</td>
+                                        <td>{{entry.Name}}</td>
+                                        <td>{{entry.Email}}</td>
+                                        <td>{{entry.Room}}</td>
+                                        <td>{{entry.Device}}</td>
+                                        <td>{{entry.Condition}}</td>
+                                        <td>{{entry.Comments}}</td>
                                     </tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
-
                     </div>
-
+                    <div id="updateAssignments" class="tab-pane fade " ng-controller="updateAssignmentsController">
+                        <div class="container">
+                            <form class="form" role="form"> <!-- search field(incomplete) size="78"-->
+                                <div class="form-group ">
+                                    <input type="text" class="form-control"  type="text"  placeholder="Search... " ng-model="allotSearch">
+                                </div>
+                            </form>
+                            <div class="table-responsive">
+                                <table class="table table-hover" >
+                                    <thead>
+                                    <tr>
+                                        <th>Sno</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Room No.</th>
+                                        <th>Device</th>
+                                        <th>Condition</th>
+                                        <th>Comments</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody >
+                                    <tr ng-repeat="entry in entries | filter: allotSearch" ng-click = "open('lg');">
+                                        <td>{{entry.Sno}}</td>
+                                        <td>{{entry.Name}}</td>
+                                        <td>{{entry.Email}}</td>
+                                        <td>{{entry.Room}}</td>
+                                        <td>{{entry.Device}}</td>
+                                        <td>{{entry.Condition}}</td>
+                                        <td>{{entry.Comments}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
-
             </div>
-
-
         </div>
-
     </div>
     <div class="row"><!--footer-->
         <nav class="navbar navbar-inverse navbar-fixed-bottom">
@@ -351,10 +326,7 @@
                 </div>
             </div>
         </nav>
-
-
     </div>
 </div>
-
 </body>
 </html>

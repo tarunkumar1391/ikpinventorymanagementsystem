@@ -1,26 +1,26 @@
 
 <div class="modal-header">
-    <h3 class="modal-title">Assign Hardware: {{items.devName}} </h3>
+    <h3 class="modal-title">Update Assignment No: {{items.Sno}} </h3>
 </div>
 <div class="modal-body">
-    <form role="form" class="form-horizontal" action="../server/assignhardware.php" method="post"  ng-controller="viewInventoryController">
+    <form role="form" class="form-horizontal" action="../server/updateassignments.php" method="post"  ng-controller="updateAssignmentsController">
         <div class="divider"></div>
         <div class="form-group">
-            <label class="control-label col-sm-2" >Assign to:</label>
+            <label class="control-label col-sm-2" >Assignee:</label>
             <div class="col-lg-8 col-md-8">
-                <input type="text" class="form-control" name="assigneeName" placeholder="Enter the name of the person to whom the hardware has to be assigned" required>
+                <input type="text" class="form-control" name="assigneeName" placeholder="Enter the name of the person to whom the hardware has to be assigned" value="{{items.Name}}" required>
             </div>
         </div>
         <div class="form-group">
             <label class="control-label col-sm-2" >Room No:</label>
             <div class="col-lg-8 col-md-8">
-                <input type="text" class="form-control" name="assigneeRoom" placeholder="Enter Room no" required>
+                <input type="text" class="form-control" name="assigneeRoom" placeholder="Enter Room no" value="{{items.Room}}" required>
             </div>
         </div>
         <div class="form-group">
             <label class="control-label col-sm-2" >Email:</label>
             <div class="col-lg-8 col-md-8">
-                <input type="email" class="form-control" name="assigneeEmail" placeholder="Enter email id" required >
+                <input type="email" class="form-control" name="assigneeEmail" placeholder="Enter email id" value="{{items.Email}}" required >
             </div>
         </div>
         <div class="divider"></div>
@@ -28,28 +28,28 @@
             <label class="control-label col-md-2 col-lg-2" >Category :</label>
 
             <div class="col-lg-6 col-md-6">
-                <label class="control-label " >{{items.devCategory}}</label>
+                <label class="control-label " >{{items.Category}}</label>
                 <input type="hidden" class="form-control" name="devCategory" placeholder="Enter email id" value="{{items.devCategory}}"  >
             </div>
         </div>
         <div class="form-group">
             <label class="control-label col-md-2 col-lg-2" >Device :</label>
             <div class="col-lg-6 col-md-6">
-                <label class="control-label" >{{items.devName}}</label>
+                <label class="control-label" >{{items.Device}}</label>
                 <input type="hidden" class="form-control" name="deviceType" value="{{items.devName}}"  >
             </div>
         </div>
         <div class="form-group">
             <label class="control-label col-md-2 col-lg-2" >Brand :</label>
             <div class="col-lg-6 col-md-6">
-                <label class="control-label " >{{items.brandName}}</label>
+                <label class="control-label " >{{items.Brand}}</label>
                 <input type="hidden" class="form-control" name="deviceBrand" value="{{items.brandName}}"  >
             </div>
         </div>
         <div class="form-group">
             <label class="control-label col-md-2 col-lg-2" >Dev Condition :</label>
             <div class="col-lg-6 col-md-6">
-                <label class="control-label " >{{items.devCondition}}</label>
+                <label class="control-label " >{{items.Condition}}</label>
                 <input type="hidden" class="form-control" name="deviceCond" value="{{items.devCondition}}"  >
             </div>
         </div>
@@ -61,22 +61,15 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label col-sm-2" >Available stock :</label>
-            <div class="col-lg-8 col-md-8">
-                <label class="control-label" >{{items.devQuantity}}</label>
-                <input type="hidden" class="form-control" name="availStock" value="{{items.devQuantity}}"  >
-            </div>
-        </div>
-        <div class="form-group">
             <label class="control-label col-sm-2" >Quantity :</label>
             <div class="col-lg-8 col-md-8">
-                <input type="number" min="1" id="hrdQty" class="form-control" name="hardwareQty" placeholder="Enter Quantity" required>
+                <input type="number" min="1" id="hrdQty" class="form-control" name="hardwareQty" value="{{items.Quantity}}" placeholder="Enter Quantity" required>
             </div>
         </div>
         <div class="form-group">
             <label class="control-label col-sm-2" >Comments :</label>
             <div class="col-lg-8 col-md-8">
-                <textarea class="form-control" name="hardComm" placeholder="Enter your comments here"></textarea>
+                <textarea class="form-control" name="hardComm" placeholder="Enter your comments here">{{items.Comments}}</textarea>
             </div>
         </div>
 
@@ -84,6 +77,7 @@
             <div class="col-sm-offset-2 col-sm-10">
                 <button type="submit" class="btn btn-primary">Submit</button>
                 <button type="reset" class="btn btn-default" ng-click="cancel()">Cancel</button>
+                <button
             </div>
         </div>
     </form>

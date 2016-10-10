@@ -1,0 +1,75 @@
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" ng-click="cancel()">&times;</button>
+    <h3 class="modal-title">Assignment No: {{items.Sno}} </h3>
+</div>
+<div class="modal-body">
+    <form role="form" class="form-horizontal" action="../server/assignhardware.php" method="post"  ng-controller="viewInventoryController">
+        <div class="form-group">
+            <label class="control-label col-sm-2" >Assigned to:</label>
+            <div class="col-lg-8 col-md-8">
+                <label class="control-label custLabel" >{{items.Name}}</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" >Room No:</label>
+            <div class="col-lg-8 col-md-8">
+                <label class="control-label custLabel" >{{items.Room}}</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" >Email:</label>
+            <div class="col-lg-8 col-md-8">
+                <label class="control-label custLabel" >{{items.Email}}</label>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <div class="form-group">
+            <label class="control-label col-md-2 col-lg-2" >Category :</label>
+            <div class="col-lg-6 col-md-6">
+                <label class="control-label custLabel" >{{items.Category}}</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2 col-lg-2" >Device :</label>
+            <div class="col-lg-6 col-md-6">
+                <label class="control-label custLabel" >{{items.Device}}</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2 col-lg-2" >Brand :</label>
+            <div class="col-lg-6 col-md-6">
+                <label class="control-label custLabel" >{{items.Brand}}</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2 col-lg-2" >Dev Condition :</label>
+            <div class="col-lg-6 col-md-6">
+                <label class="control-label custLabel" >{{items.Condition}}</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" >QR Code :</label>
+            <div class="col-lg-8 col-md-8">
+                <label class="control-label custLabel" >{{items.qrData}}</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" >Quantity :</label>
+            <div class="col-lg-8 col-md-8">
+                <label class="control-label custLabel" >{{items.Quantity}}</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" >Comments :</label>
+            <div class="col-lg-8 col-md-8">
+                <label class="control-label custLabel" >{{items.Comments}}</label>
+
+            </div>
+        </div>
+    </form>
+
+</div>
+
+</div>
+

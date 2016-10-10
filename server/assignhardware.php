@@ -46,6 +46,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     $qrData = isset($_POST['qrData']) ? input($_POST['qrData']) : "0";
     $availStock = isset($_POST['availStock']) ? input($_POST['availStock']) : "0";
     $timeStmp = date("Y-m-d H:i:s");
+    
     if($devQuantity <= $availStock && $devQuantity > 0){
         $newStock = $availStock - $devQuantity;
     } else {
