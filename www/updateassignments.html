@@ -1,10 +1,10 @@
-
+<div class="modal-content" ng-controller="updateAssignmentsController">
 <div class="modal-header">
     <h3 class="modal-title">Update Assignment No: {{items.Sno}} </h3>
 </div>
 <div class="modal-body">
-    <form role="form" class="form-horizontal" action="../server/updateassignments.php" method="post"  ng-controller="updateAssignmentsController">
-        <div class="divider"></div>
+    <form role="form" class="form-horizontal" action="../server/updateassignments.php" method="post"  >
+
         <div class="form-group">
             <label class="control-label col-sm-2" >Assignee:</label>
             <div class="col-lg-8 col-md-8">
@@ -77,10 +77,22 @@
             <div class="col-sm-offset-2 col-sm-10">
                 <button type="submit" class="btn btn-primary">Submit</button>
                 <button type="reset" class="btn btn-default" ng-click="cancel()">Cancel</button>
-                <button
+
             </div>
         </div>
     </form>
 
 </div>
+<div class="modal-footer">
+    <form role="form" class="form-horizontal" action="../server/deleteassignment.php" method="post"  >
 
+        <input type="hidden" name="recordNum" value="{{items.Sno}}">
+        <div class="form-group">
+            <label class="control-label col-md-6 col-lg-6" >To delete this assignment, Click here</label>
+            <div class="col-lg-2 col-md-2">
+                <button type="submit" class="btn btn-primary">Delete</button>
+            </div>
+        </div>
+    </form>
+</div>
+</div>

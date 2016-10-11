@@ -11,7 +11,7 @@ $username = "root";
 $password = "";
 $dbname = "ikp";
 //define variables
-$sno = $devCategory = $deviceType = $entryType = $brandName = $devQuantity = $deviceCondition = $deviceDesc = $timestmp = "";
+$sno = $devCategory = $deviceType = $entryType = $brandName = $actualStock = $devQuantity = $deviceCondition = $deviceDesc = $timestmp = "";
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -38,6 +38,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     $deviceType = isset($_POST['deviceType']) ? input($_POST['deviceType']) : "0";
     $entryType = isset($_POST['entryTyp']) ? input($_POST['entryTyp']) : "0";
     $brandName = isset($_POST['brandName']) ? input($_POST['brandName']) : "0";
+    $actualStock = isset($_POST['brandName']) ? input($_POST['brandName']) : "0";
     if($entryType == "Single"){
         $devQuantity = 1;
     } else {

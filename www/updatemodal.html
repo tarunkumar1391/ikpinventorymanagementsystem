@@ -3,13 +3,13 @@
     <h3 class="modal-title">Update Inventory </h3>
 </div>
 <div class="modal-body">
-    <form role="form" class="form-horizontal" action="../server/updateinventory.php" method="post"  >
+    <form role="form" class="form-horizontal" action="../server/updateinventory.php" method="post" ng-controller = "updateInventoryController" >
         <h4>Entry No: {{items.Sno}}</h4>
         <input type="hidden" name="entryid" value="{{items.Sno}}" >
         <div class="form-group">
             <label class="control-label col-md-2 col-lg-2" >Device category:</label>
             <div class="col-lg-6 col-md-6">
-                <select class="form-control" name="devCategory" placeholder="Choose a catergory" ng-model="items.devCategory">
+                <select class="form-control" name="devCategory" placeholder="Choose a catergory" ng-model="items.devCategory" required>
                     <option ng-selected="true" value="">Choose a catergory...</option>
                     <option ng-repeat="cat in category | unique:'Category'">{{cat.Category}}</option>
                 </select>
@@ -41,7 +41,14 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label col-md-2 col-lg-2">Quantity:</label>
+            <label class="control-label col-md-2 col-lg-2">Actual Stock:</label>
+            <div class="col-lg-6 col-md-6">
+                <input type="number" class="form-control"   value="{{items.originalStock}}" disabled>
+                <input type="hidden" class="form-control"  name="actualStock"   value="{{items.originalStock}}">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2 col-lg-2">Available Quantity:</label>
             <div class="col-lg-6 col-md-6">
                 <input type="number" class="form-control" id="devQuant" name="devQuantity" min="1" placeholder="Enter quantity" value="{{items.devQuantity}}" required>
             </div>

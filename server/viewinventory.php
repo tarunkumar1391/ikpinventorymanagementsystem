@@ -19,6 +19,7 @@ while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
     $outp .= '"devCategory":"'  . $rs["devCategory"] . '",';
     $outp .= '"devName":"'  . $rs["devName"] . '",';
     $outp .= '"brandName":"'   . $rs["brandName"] . '",';
+    $outp .= '"originalStock":"'   . $rs["originalStock"] . '",';
     $outp .= '"devQuantity":"'   . $rs["devQuantity"] . '",';
     $outp .= '"devCondition":"'. $rs["devCondition"] . '",';
     $outp .= '"qrData":"'. $rs["qrData"] . '",';

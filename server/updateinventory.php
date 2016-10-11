@@ -10,7 +10,7 @@ $username = "root";
 $password = "";
 $dbname = "ikp";
 //define variables
-$sno = $devCategory = $deviceType = $entryType = $brandName = $devQuantity = $deviceCondition = $deviceDesc = $timestmp = "";
+$sno = $devCategory = $deviceType = $entryType = $brandName = $actualStock = $devQuantity = $deviceCondition = $deviceDesc = $timestmp = "";
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -20,8 +20,8 @@ if ($conn->connect_error) {
 }
 
 // prepare and bind
-$stmt = $conn->prepare("UPDATE inventory SET devCategory=?, devName=?,  entryType=?, brandName=?, devQuantity=?, devCondition=?, devDescription=?, timeStmp=?  WHERE sno=?");
-$stmt->bind_param("ssssisssi", $devCategory, $deviceType, $entryType, $brandName, $devQuantity, $deviceCondition, $deviceDesc, $timestmp,$sno);
+$stmt = $conn->prepare("UPDATE inventory SET devCategory=?, devName=?,  entryType=?, brandName=?,actualStock=?, devQuantity=?, devCondition=?, devDescription=?, timeStmp=?  WHERE sno=?");
+$stmt->bind_param("ssssiisssi", $devCategory, $deviceType, $entryType, $brandName, $actualStock, $devQuantity, $deviceCondition, $deviceDesc, $timestmp,$sno);
 
 function input($data) {
     $data = trim($data);
@@ -37,6 +37,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     $deviceType = isset($_POST['deviceType']) ? input($_POST['deviceType']) : "0";
     $entryType = isset($_POST['entryTyp']) ? input($_POST['entryTyp']) : "0";
     $brandName = isset($_POST['brandName']) ? input($_POST['brandName']) : "0";
+    $actualStock = isset($_POST['actualStock']) ? input($_POST['actualStock']) : "0";
     if($entryType == "Single"){
         $devQuantity = 1;
     } else {

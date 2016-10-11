@@ -20,8 +20,8 @@ if ($conn->connect_error) {
 }
 
 // prepare and bind
-$stmt = $conn->prepare("INSERT INTO hardwareassignments (assignedTo, roomNo, emailId, devCategory, device, devBrand, devCondition,quantity, comments, qrData, timeStmp) VALUES (?,?, ?, ?, ?, ?, ?, ?,?,?,?)");
-$stmt->bind_param("sssssssisss", $assignTo,$roomNo,$emailId, $devCategory, $device, $devBrand, $deviceCondition,$devQuantity, $comments,$qrData, $timeStmp  );
+$stmt = $conn->prepare("INSERT INTO hardwareassignments (assignedTo, roomNo, emailId, devCategory, device, devBrand, devCondition, availStock, quantityReq, comments, qrData, timeStmp) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?)");
+$stmt->bind_param("sssssssiisss", $assignTo,$roomNo,$emailId, $devCategory, $device, $devBrand, $deviceCondition, $availStock, $devQuantity, $comments,$qrData, $timeStmp  );
 
 $stmt2 = $conn->prepare("UPDATE inventory SET devQuantity=? WHERE qrData=?");
 $stmt2->bind_param("is", $newStock,$qrData);
