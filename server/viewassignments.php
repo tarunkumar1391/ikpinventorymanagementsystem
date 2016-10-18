@@ -22,6 +22,7 @@ while($rs = $result->fetch_array(MYSQLI_ASSOC)) {
     $outp .= '"Category":"'   . $rs["devCategory"] . '",';
     $outp .= '"Device":"'   . $rs["device"] . '",';
     $outp .= '"Brand":"'   . $rs["devBrand"] . '",';
+    $outp .= '"availableStock":"'   . $rs["availStock"] . '",';
     $outp .= '"Quantity":"'   . $rs["quantityReq"] . '",';
     $outp .= '"Condition":"'. $rs["devCondition"] . '",';
     $outp .= '"qrData":"'. $rs["qrData"] . '",';

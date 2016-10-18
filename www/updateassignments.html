@@ -87,6 +87,8 @@
     <form role="form" class="form-horizontal" action="../server/deleteassignment.php" method="post"  >
 
         <input type="hidden" name="recordNum" value="{{items.Sno}}">
+        <input type="hidden" name="availStock" value="{{items.availableStock}}">
+        <input type="hidden" name="qrd" value="{{items.qrData}}">
         <div class="form-group">
             <label class="control-label col-md-6 col-lg-6" >To delete this assignment, Click here</label>
             <div class="col-lg-2 col-md-2">
