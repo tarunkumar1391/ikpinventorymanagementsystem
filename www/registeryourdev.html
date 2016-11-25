@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>IKP-Register your device </title>
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="../scripts/js/angular.min.js"></script>
+    <script src="../scripts/js/ui-bootstrap-tpls-2.0.0.min.js"></script>
+    <script src="../scripts/js/angular-animate.min.js"></script>
+    <script src="../scripts/js/angular-filter.min.js"></script>
+    <script src="../scripts/js/control.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="../scripts/js/bootstrap.min.js"></script>
+</head>
+<body ng-app="inventoryApp" >
+<div class="container-fluid"><!--main body container-->
+    <div class="row-fluid"><!--header-->
+        <div class="page-header">
+            <h3>IKP - Register your device </h3>
+        </div>
+    </div>
+    <div class="row"><!-- body content-->
+        <form role="form" class="form-horizontal" action="../server/userdevregistration.php" method="post" ng-controller="addinventoryController" >
+            <div class="form-group">
+                <label class="control-label col-md-2 col-lg-2">Name :</label>
+                <div class="col-lg-6 col-md-6">
+                    <input type="text" class="form-control" name="userName" placeholder="Enter your full name" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2 col-lg-2">Email:</label>
+                <div class="col-lg-6 col-md-6">
+                    <input type="email" class="form-control" name="userEmail" placeholder="Enter your ikp email address" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2 col-lg-2">Room No. :</label>
+                <div class="col-lg-6 col-md-6">
+                    <input type="text" class="form-control" name="userRoom" placeholder="Enter your room no." required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2 col-lg-2" >Device category:</label>
+                <div class="col-lg-6 col-md-6">
+                    <select class="form-control" name="devCategory" placeholder="Choose a catergory" ng-model="devCat">
+                        <option  ng-selected="true" value="">Choose a catergory...</option>
+                        <option ng-repeat="cat in category | unique:'Category'">{{cat.Category}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2 col-lg-2" >Choose device :</label>
+                <div class="col-lg-6 col-md-6">
+                    <select class="form-control" name="deviceType" placeholder="Choose an option that perfectly matches the device or choose the closest one " ng-model="devNg" required>
+                        <option ng-disabled="true" ng-selected="true" value="">Choose a Device...</option>
+                        <option ng-repeat="dev in device | unique:'dev' | filter:{Category:devCat}">{{dev.dev}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2 col-lg-2">Brand name :</label>
+                <div class="col-lg-6 col-md-6">
+                    <input type="text" class="form-control" name="brandName" placeholder="Enter Brand Name" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2 col-lg-2">Quantity:</label>
+                <div class="col-lg-6 col-md-6">
+                    <input type="number" class="form-control" id="devQuant" name="devQuantity" min="1" placeholder="Enter quantity" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2 col-lg-2">Condition :</label>
+                <div class="col-lg-6 col-md-6">
+                    <select class="form-control" name="deviceCondition" placeholder="Choose whether the device is new/old/refurbished" required>
+                        <option ng-disabled="true" ng-selected="true" value="">choose a device condition</option>
+                        <option value="Old">Old</option>
+                        <option value="New">New</option>
+                        <option value="Refurbished">Refurbished</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2 col-lg-2">Kostenstelle :</label>
+                <div class="col-lg-6 col-md-6">
+                    <input type="text" class="form-control" name="kostenstelle" placeholder="Look for the Kst Nr mentioned on the yellow sticker" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2 col-lg-2">Inv Nr.:</label>
+                <div class="col-lg-6 col-md-6">
+                    <input type="text" class="form-control" name="invNumber" placeholder="Look for the Inv Nr mentioned on the yellow sticker" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-md-2 col-lg-2" >Description:</label>
+                <div class="col-lg-6 col-md-6">
+                    <textarea  class="form-control" name="deviceDesc" placeholder="Provide device description or any information pertaining to the device..." required></textarea>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10 col-lg-offset-2 col-lg-10">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="reset" class="btn btn-default">Cancel</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+    <div class="row"><!--footer-->
+        <nav class="navbar navbar-inverse navbar-fixed-bottom">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <h4 class="navbar-brand">All rights reserved @ Institut für kern physik</h4>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+</body>
+</html>

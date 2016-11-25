@@ -14,7 +14,9 @@ app.controller('addinventoryController',function ($scope,$http, $uibModal, $log)
         {"id":4,"Category":"Cables"},
         {"id":5,"Category":"Networking"},
         {"id":6,"Category":"Storage"},
-        {"id":7,"Category":"Multimedia"}
+        {"id":7,"Category":"Multimedia"},
+        {"id":8,"Category":"Desktop"},
+        {"id":9,"Category":"Laptop"}
 
     ];
     $scope.device = [
@@ -67,7 +69,9 @@ app.controller('addinventoryController',function ($scope,$http, $uibModal, $log)
         {"id":47,"Category":"Multimedia","dev":"Graphic Cards"},
         {"id":48,"Category":"Multimedia","dev":"Speakers"},
         {"id":49,"Category":"Multimedia","dev":"Mic"},
-        {"id":50,"Category":"Multimedia","dev":"Others"}
+        {"id":50,"Category":"Multimedia","dev":"Others"},
+        {"id":51,"Category":"Desktop","dev":"Desktop/Tower/PC"},
+        {"id":52,"Category":"Laptop","dev":"Laptop"}
     ];
     
 });
@@ -134,8 +138,9 @@ app.controller('updateInventoryController',function ($scope,$http,$uibModal, $lo
         {"id":4,"Category":"Cables"},
         {"id":5,"Category":"Networking"},
         {"id":6,"Category":"Storage"},
-        {"id":7,"Category":"Multimedia"}
-
+        {"id":7,"Category":"Multimedia"},
+        {"id":8,"Category":"Desktop"},
+        {"id":9,"Category":"Laptop"}
     ];
     $scope.device = [
         {"id":1,"Category":"Input device","dev":"Keyboard-USB"},
@@ -187,7 +192,9 @@ app.controller('updateInventoryController',function ($scope,$http,$uibModal, $lo
         {"id":47,"Category":"Multimedia","dev":"Graphic Cards"},
         {"id":48,"Category":"Multimedia","dev":"Speakers"},
         {"id":49,"Category":"Multimedia","dev":"Mic"},
-        {"id":50,"Category":"Multimedia","dev":"Others"}
+        {"id":50,"Category":"Multimedia","dev":"Others"},
+        {"id":51,"Category":"Desktop","dev":"Desktop/Tower/PC"},
+        {"id":52,"Category":"Laptop","dev":"Laptop"}
     ];
     $http.get('../server/viewinventory.php').then(function (response) {
         $scope.entries = response.data.records;
