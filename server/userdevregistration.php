@@ -44,13 +44,14 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     $invNumber = isset($_POST['invNumber']) ? input($_POST['invNumber']) : "0";
     $devDesc = isset($_POST['deviceDesc']) ? input($_POST['deviceDesc']) : "0";
     $timestamp = date("Y-m-d H:i:s");;
-    $subject = "DO NOT REPLY - Your Hardware registration at IKP";
+
 }
+    $recepient = $userEmail;
 
 
 if ($stmt->execute()) {
     echo "A new entry has been created successfully!! An email will be sent to you shortly confirming your submission ".'\n' ;
-    echo '<a href="../www/index.html">click here to return!!</a>';
+    echo '<a href="../www/index.html">click here to return!!</a>\nma';
 //    header("Location: ../www/index.html");
 //script for mail
 
@@ -66,15 +67,15 @@ if ($stmt->execute()) {
         )
     );
     $mail->isSMTP();                                      // Set mailer to use SMTP
-    $mail->Host = 'linix.ikp.physik.tu-darmstadt.de';  // Specify main and backup SMTP servers
+    $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
     $mail->SMTPAuth = true;                               // Enable SMTP authentication
-    $mail->Username = 'tramdas@ikp.tu-darmstadt.de';                 // SMTP username
-    $mail->Password = 'FACu0jWukG';                           // SMTP password
+    $mail->Username = 'tarunkumar0191@gmail.com';                 // SMTP username
+    $mail->Password = 'tarun_1391';                           // SMTP password
     $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
     $mail->Port = 587;                                    // TCP port to connect to
 
-    $mail->setFrom('tramdas@ikp.tu-darmstadt.de', 'Tarun Kumar R');
-    $mail->addAddress($userEmail,$subject);     // Add a recipient
+    $mail->setFrom('tarunkumar0191@gmail.com', 'Tarun Kumar R');
+    $mail->addAddress($recepient);     // Add a recipient
     //$mail->addAddress('ellen@example.com');               // Name is optional
     //$mail->addReplyTo('info@example.com', 'Information');
     // $mail->addCC('cc@example.com');
@@ -92,7 +93,7 @@ if ($stmt->execute()) {
         echo 'Message could not be sent.';
         echo 'Mailer Error: ' . $mail->ErrorInfo;
     } else {
-        echo 'Message has been sent';
+        echo 'A confirmation email has been sent';
     }
 } else {
     die('execute() failed: ' . htmlspecialchars($stmt->error));
